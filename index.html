@@ -6,8 +6,10 @@
     <title>Watch Ads & Earn Money</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Monetag SDK -->
-    <script src='//libtl.com/sdk.js' data-zone='10261712' data-sdk='show_10261712'></script>
+    <!-- Favicon to prevent 404 error -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💰</text></svg>">
+    <!-- New Monetag SDK -->
+    <script src='//libtl.com/sdk.js' data-zone='10265430' data-sdk='show_10265430'></script>
     <style>
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -45,6 +47,13 @@
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
@@ -121,6 +130,26 @@
                             <p class="text-gray-300 text-lg">Click below to watch an ad and earn instantly</p>
                         </div>
                         
+                        <!-- Ad Type Selection -->
+                        <div class="mb-6 p-4 bg-gray-900/50 rounded-xl border border-gray-700 backdrop-blur-sm">
+                            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-tv text-blue-400 mr-2"></i>
+                                        <h3 class="font-bold">Rewarded Interstitial</h3>
+                                    </div>
+                                    <p class="text-sm text-gray-400">Watch full ad for guaranteed reward</p>
+                                </div>
+                                <div class="md:border-l md:border-gray-700 md:pl-6">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-window-restore text-purple-400 mr-2"></i>
+                                        <h3 class="font-bold">Rewarded Popup</h3>
+                                    </div>
+                                    <p class="text-sm text-gray-400">Popup format ad</p>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <button id="watchAdBtn" class="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold text-2xl py-6 px-8 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] glow shadow-2xl">
                             <i class="fas fa-play mr-3"></i>WATCH AD & EARN $0.10
                         </button>
@@ -147,31 +176,29 @@
                     
                     <div class="space-y-4 mb-6">
                         <!-- UPI -->
-                        <!-- UPI Method with BHIM Icon (Dummy URL) -->
-<div id="upiMethod" class="bg-gray-900/50 p-5 rounded-xl border border-gray-700 cursor-not-allowed opacity-60 backdrop-blur-sm">
-    <div class="flex items-center">
-        <div class="bg-gradient-to-br from-[#6F2DA8] to-[#9B30FF] p-3 rounded-xl mr-4 shadow-lg flex items-center justify-center">
-            <!-- BHIM Icon with dummy URL -->
-            <img 
-                src="https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/bhim-app-icon.png" 
-                alt="BHIM UPI"
-                class="w-10 h-10 object-contain"
-            >
-        </div>
-        <div class="flex-1">
-            <h3 class="font-bold text-lg">BHIM UPI</h3>
-            <p class="text-sm text-gray-400">Instant to Indian banks</p>
-            <div class="flex items-center mt-1">
-                <span class="text-[10px] bg-purple-900/50 text-purple-300 px-2 py-0.5 rounded mr-2">NPCI</span>
-                <span class="text-[10px] bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded">BHIM</span>
-            </div>
-        </div>
-        <div class="text-right">
-            <div class="text-xs text-gray-500 mb-1">Min $10</div>
-            <i class="fas fa-lock text-gray-500 text-lg"></i>
-        </div>
-    </div>
-</div>
+                        <div id="upiMethod" class="bg-gray-900/50 p-5 rounded-xl border border-gray-700 cursor-not-allowed opacity-60 backdrop-blur-sm">
+                            <div class="flex items-center">
+                                <div class="bg-gradient-to-br from-[#6F2DA8] to-[#9B30FF] p-3 rounded-xl mr-4 shadow-lg flex items-center justify-center">
+                                    <img 
+                                        src="https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/bhim-app-icon.png" 
+                                        alt="BHIM UPI"
+                                        class="w-10 h-10 object-contain"
+                                    >
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-lg">BHIM UPI</h3>
+                                    <p class="text-sm text-gray-400">Instant to Indian banks</p>
+                                    <div class="flex items-center mt-1">
+                                        <span class="text-[10px] bg-purple-900/50 text-purple-300 px-2 py-0.5 rounded mr-2">NPCI</span>
+                                        <span class="text-[10px] bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded">BHIM</span>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-xs text-gray-500 mb-1">Min $10</div>
+                                    <i class="fas fa-lock text-gray-500 text-lg"></i>
+                                </div>
+                            </div>
+                        </div>
                         
                         <!-- PayPal -->
                         <div id="paypalMethod" class="bg-gray-900/50 p-5 rounded-xl border border-gray-700 cursor-not-allowed opacity-60 backdrop-blur-sm">
@@ -228,6 +255,23 @@
         </footer>
     </div>
 
+    <!-- Ad Loading Overlay -->
+    <div id="adLoadingOverlay" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center fade-in">
+        <div class="text-center p-8 max-w-md">
+            <div class="mb-6">
+                <div class="inline-block p-6 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full animate-pulse">
+                    <i class="fas fa-ad text-white text-5xl"></i>
+                </div>
+            </div>
+            <h2 class="text-3xl font-bold mb-4 text-white">Loading Ad...</h2>
+            <p class="text-gray-300 mb-6">Please wait while we load the advertisement</p>
+            <div class="w-full bg-gray-800 rounded-full h-2 mb-4">
+                <div id="adProgress" class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-1000" style="width: 0%"></div>
+            </div>
+            <p id="adStatus" class="text-sm text-gray-400">Initializing ad player...</p>
+        </div>
+    </div>
+
     <script>
         // Initialize data
         let userEarnings = 0;
@@ -235,6 +279,7 @@
         let todayEarnings = 0;
         let activityLog = [];
         let today = '';
+        let adType = 'interstitial'; // 'interstitial' or 'pop'
         
         // DOM Elements
         const earningsElement = document.getElementById('earnings');
@@ -247,6 +292,9 @@
         const upiMethod = document.getElementById('upiMethod');
         const paypalMethod = document.getElementById('paypalMethod');
         const activityLogContainer = document.getElementById('activityLog');
+        const adLoadingOverlay = document.getElementById('adLoadingOverlay');
+        const adProgress = document.getElementById('adProgress');
+        const adStatus = document.getElementById('adStatus');
 
         // Check date reset
         function checkDateReset() {
@@ -264,6 +312,30 @@
             updateProgress();
             updatePaymentMethods();
             renderActivityLog();
+            
+            // Start automatic interstitial ads in the background
+            startAutomaticInterstitialAds();
+        }
+
+        // Start automatic interstitial ads
+        function startAutomaticInterstitialAds() {
+            try {
+                if (typeof show_10265430 === 'function') {
+                    show_10265430({
+                        type: 'inApp',
+                        inAppSettings: {
+                            frequency: 2,
+                            capping: 0.1,
+                            interval: 30,
+                            timeout: 5,
+                            everyPage: false
+                        }
+                    });
+                    console.log("Automatic interstitial ads started");
+                }
+            } catch (error) {
+                console.log("Automatic ads not available:", error);
+            }
         }
 
         // Update display
@@ -339,34 +411,120 @@
             }
         }
 
+        // Show ad loading overlay
+        function showAdLoading() {
+            adProgress.style.width = '0%';
+            adStatus.textContent = "Initializing ad player...";
+            adLoadingOverlay.classList.remove('hidden');
+            adLoadingOverlay.classList.add('flex');
+            
+            // Simulate loading progress
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 90) {
+                    progress = 90;
+                }
+                adProgress.style.width = `${progress}%`;
+                
+                if (progress < 30) adStatus.textContent = "Connecting to ad server...";
+                else if (progress < 60) adStatus.textContent = "Loading ad content...";
+                else adStatus.textContent = "Preparing ad playback...";
+            }, 300);
+            
+            return progressInterval;
+        }
+
+        // Hide ad loading overlay
+        function hideAdLoading(progressInterval) {
+            clearInterval(progressInterval);
+            adProgress.style.width = '100%';
+            adStatus.textContent = "Ad completed!";
+            
+            setTimeout(() => {
+                adLoadingOverlay.classList.add('hidden');
+                adLoadingOverlay.classList.remove('flex');
+            }, 500);
+        }
+
         // Watch ad button click
         watchAdBtn.addEventListener('click', function() {
             // Disable button
             watchAdBtn.disabled = true;
             watchAdBtn.innerHTML = `<i class="fas fa-spinner fa-spin mr-3"></i>LOADING AD...`;
             
-            // Check if Monetag SDK is available
-            if (typeof show_10261712 === 'function') {
-                // Direct Monetag ad
-                show_10261712().then(() => {
-                    handleAdCompletion();
-                }).catch((error) => {
-                    console.error("Ad error:", error);
-                    showNotification("Ad failed to load. Please try again.", "error");
-                    resetWatchButton();
-                });
-            } else {
-                // Demo fallback
-                setTimeout(() => {
-                    handleAdCompletion();
-                }, 1500);
-            }
+            // Show loading overlay
+            const progressInterval = showAdLoading();
+            
+            // Randomly choose ad type (alternate between interstitial and popup)
+            adType = Math.random() > 0.5 ? 'interstitial' : 'pop';
+            
+            // Update ad status
+            adStatus.textContent = `Loading ${adType === 'interstitial' ? 'Rewarded Interstitial' : 'Rewarded Popup'} ad...`;
+            
+            // Load ad based on type
+            loadAd(adType, progressInterval);
         });
 
+        // Load ad based on type
+        function loadAd(type, progressInterval) {
+            try {
+                if (typeof show_10265430 === 'function') {
+                    if (type === 'pop') {
+                        // Rewarded Popup
+                        show_10265430('pop').then(() => {
+                            // User watched ad till the end
+                            hideAdLoading(progressInterval);
+                            handleAdCompletion();
+                        }).catch(error => {
+                            console.error("Popup ad error:", error);
+                            hideAdLoading(progressInterval);
+                            // User closed ad or error occurred - still reward for attempt
+                            handleAdCompletion(true); // true = partial reward
+                        });
+                    } else {
+                        // Rewarded Interstitial
+                        show_10265430().then(() => {
+                            // User watched full ad
+                            hideAdLoading(progressInterval);
+                            handleAdCompletion();
+                        }).catch(error => {
+                            console.error("Interstitial ad error:", error);
+                            hideAdLoading(progressInterval);
+                            // Fallback to demo ad
+                            fallbackAd();
+                        });
+                    }
+                } else {
+                    // SDK not loaded, use fallback
+                    hideAdLoading(progressInterval);
+                    fallbackAd();
+                }
+            } catch (error) {
+                console.error("Ad loading error:", error);
+                hideAdLoading(progressInterval);
+                fallbackAd();
+            }
+        }
+
+        // Fallback ad (demo mode)
+        function fallbackAd() {
+            showNotification("Loading demo ad...", "info");
+            setTimeout(() => {
+                handleAdCompletion();
+            }, 2000);
+        }
+
         // Handle ad completion
-        function handleAdCompletion() {
+        function handleAdCompletion(partial = false) {
             // Fixed earnings amount
-            const earnedAmount = 0.10;
+            let earnedAmount = 0.10;
+            
+            // Adjust for partial view (popup closed early)
+            if (partial) {
+                earnedAmount = 0.05; // Half reward for partial view
+                showNotification("Ad closed early - partial reward earned", "warning");
+            }
             
             // Update data
             userEarnings += earnedAmount;
@@ -378,6 +536,7 @@
                 id: Date.now(),
                 type: 'ad_watched',
                 amount: earnedAmount,
+                adType: adType,
                 total: userEarnings,
                 time: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
             };
@@ -462,16 +621,22 @@
             
             activityLogContainer.innerHTML = activityLog.map(log => {
                 if (log.type === 'ad_watched') {
+                    const adTypeIcon = log.adType === 'pop' ? 'fa-window-restore' : 'fa-tv';
+                    const adTypeColor = log.adType === 'pop' ? 'purple' : 'blue';
+                    const adTypeText = log.adType === 'pop' ? 'Popup' : 'Interstitial';
+                    
                     return `
-                        <div class="flex items-center justify-between p-4 mb-3 bg-gradient-to-r from-gray-900/80 to-gray-800/80 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all backdrop-blur-sm shadow-lg">
+                        <div class="flex items-center justify-between p-4 mb-3 bg-gradient-to-r from-gray-900/80 to-gray-800/80 rounded-xl border border-gray-700 hover:border-${adTypeColor}-500/50 transition-all backdrop-blur-sm shadow-lg">
                             <div>
                                 <div class="flex items-center">
-                                    <div class="bg-blue-600 p-2 rounded-lg mr-3">
-                                        <i class="fas fa-ad text-white"></i>
+                                    <div class="bg-${adTypeColor}-600 p-2 rounded-lg mr-3">
+                                        <i class="fas ${adTypeIcon} text-white"></i>
                                     </div>
-                                    <span class="font-semibold text-lg">Ad Watched</span>
+                                    <div>
+                                        <div class="font-semibold text-lg">${adTypeText} Ad</div>
+                                        <div class="text-xs text-gray-400 mt-1">⏰ ${log.time}</div>
+                                    </div>
                                 </div>
-                                <div class="text-sm text-gray-400 ml-11 mt-1">⏰ ${log.time}</div>
                             </div>
                             <div class="text-right">
                                 <div class="text-xl font-bold text-green-400">+$${log.amount.toFixed(2)}</div>
@@ -491,9 +656,11 @@
                                     <div class="${bgColor} p-2 rounded-lg mr-3">
                                         ${methodIcon}
                                     </div>
-                                    <span class="font-semibold text-lg">Withdrawal</span>
+                                    <div>
+                                        <div class="font-semibold text-lg">Withdrawal</div>
+                                        <div class="text-xs text-gray-400 mt-1">⏰ ${log.time}</div>
+                                    </div>
                                 </div>
-                                <div class="text-sm text-gray-400 ml-11 mt-1">⏰ ${log.time}</div>
                             </div>
                             <div class="text-right">
                                 <div class="text-xl font-bold text-red-400">-$${log.amount.toFixed(2)}</div>
@@ -509,7 +676,7 @@
         function showNotification(message, type = "success") {
             // Create notification
             const notification = document.createElement('div');
-            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium transform transition-transform duration-300 ${type === 'success' ? 'bg-green-600' : 'bg-red-600'}`;
+            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium transform transition-transform duration-300 ${type === 'success' ? 'bg-green-600' : type === 'error' ? 'bg-red-600' : 'bg-yellow-600'}`;
             notification.textContent = message;
             notification.style.transform = 'translateX(120%)';
             
@@ -533,7 +700,7 @@
             const celebration = document.createElement('div');
             celebration.className = 'fixed inset-0 flex items-center justify-center z-50 pointer-events-none';
             celebration.innerHTML = `
-                <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xl font-bold py-4 px-8 rounded-xl shadow-2xl animate-bounce">
+                <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white text-2xl font-bold py-6 px-10 rounded-2xl shadow-2xl animate-bounce">
                     🎉 WITHDRAWAL UNLOCKED! 🎉
                 </div>
             `;
@@ -549,10 +716,20 @@
         document.addEventListener('DOMContentLoaded', initializeDashboard);
         
         // Console info
-        console.log("Watch & Earn System Ready");
-        console.log("Direct Monetag ad integration");
-        console.log("Fixed $0.10 per ad");
-        console.log("UPI & PayPal withdrawal options");
+        console.log("💰 Watch & Earn System Ready");
+        console.log("📱 Monetag Zone: 10265430");
+        console.log("🎯 Features:");
+        console.log("- Rewarded Interstitial Ads");
+        console.log("- Rewarded Popup Ads");
+        console.log("- Automatic In-App Interstitials");
+        console.log("- $0.10 per ad");
+        console.log("- UPI & PayPal withdrawals");
+        
+        // Add auto-refresh for ads (optional)
+        setInterval(() => {
+            // Refresh automatic ads every 5 minutes
+            startAutomaticInterstitialAds();
+        }, 300000);
     </script>
 </body>
 </html>
